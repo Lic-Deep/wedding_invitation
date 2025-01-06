@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 청첩장</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>결혼식에 초대합니다</h1>
+            <h2>{{ couple_name }}</h2>
+        </header>
+        <section class="details">
+            <p><strong>날짜:</strong> {{ wedding_date }}</p>
+            <p><strong>시간:</strong> {{ wedding_time }}</p>
+            <p><strong>장소:</strong> {{ venue_name }}</p>
+            <p><strong>주소:</strong> {{ venue_address }}</p>
+        </section>
+        <section class="gallery">
+            <h3>추억의 사진</h3>
+            <div class="gallery-container">
+                {% for image in gallery_images %}
+                <img src="{{ image }}" alt="사진">
+                {% endfor %}
+            </div>
+        </section>
+        <section class="rsvp">
+            <h3>RSVP</h3>
+            <p><strong>연락처:</strong> {{ rsvp_contact }}</p>
+        </section>
+        <section class="bank-details">
+            <h3>축의금 계좌</h3>
+            {% for side, details in bank_details.items() %}
+            <p><strong>{{ side }}</strong>: {{ details["은행명"] }} {{ details["계좌번호"] }} ({{ details["예금주"] }})</p>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>
