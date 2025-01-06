@@ -20,6 +20,15 @@ def invitation():
         url_for('static', filename='images/photo1.jpg'),
         url_for('static', filename='images/photo2.jpg'),
         url_for('static', filename='images/photo3.jpg'),
+        url_for('static', filename='images/photo1.jpg'),
+        url_for('static', filename='images/photo2.jpg'),
+        url_for('static', filename='images/photo3.jpg'),
+        url_for('static', filename='images/photo1.jpg'),
+        url_for('static', filename='images/photo2.jpg'),
+        url_for('static', filename='images/photo3.jpg'),
+        url_for('static', filename='images/photo1.jpg'),
+        url_for('static', filename='images/photo2.jpg'),
+        url_for('static', filename='images/photo3.jpg'),
     ]
 
     return render_template(
@@ -33,6 +42,15 @@ def invitation():
         bank_details=bank_details,
         gallery_images=gallery_images,
     )
+
+@app.route("/gallery-container")
+def gallery():
+    images = [
+        url_for('static', filename='images/photo1.jpg'),
+        url_for('static', filename='images/photo2.jpg'),
+        url_for('static', filename='images/photo3.jpg'),
+    ]
+    return render_template("gallery.html", images=images)
 
 if __name__ == "__main__":
     app.run(debug=True)

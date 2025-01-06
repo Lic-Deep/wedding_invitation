@@ -22,9 +22,11 @@
             <h3>추억의 사진</h3>
             <div class="gallery-container">
                 {% for image in gallery_images %}
-                <img src="{{ image }}" alt="사진">
+                <a href="{{ image }}" data-lightbox="gallery">
+                    <img src="{{ image }}" alt="Gallery Image" style="width: 150px; height: 150px; margin: 5px;">
+                </a>
                 {% endfor %}
-            </div>
+            </div> 
         </section>
         <section class="rsvp">
             <h3>RSVP</h3>
